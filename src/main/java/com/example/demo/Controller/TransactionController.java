@@ -50,7 +50,7 @@ public class TransactionController {
     }
 
     @PostMapping("/filterByDates")
-    public ResponseEntity<?> getTransactionByEmailAndDate(@RequestBody EmailDateRequest request,Principal principal) throws CustomException {
+    public ResponseEntity<?> getTransactionByEmailAndDate(@Valid @RequestBody EmailDateRequest request,Principal principal) throws CustomException {
         List<TransactionsDto>transactionsDtos=transactionService.getTransactionByEmailAndDate(request,principal);
 
         ResponseHandler<List<TransactionsDto>> response=new ResponseHandler<>();
@@ -63,7 +63,7 @@ public class TransactionController {
     }
 
     @PostMapping("/filterByCategory")
-    public ResponseEntity<?> getTransactionByEmailAndCategory (@RequestBody EmailCategoryRequest emailCategoryRequest,Principal principal) throws CustomException {
+    public ResponseEntity<?> getTransactionByEmailAndCategory (@Valid @RequestBody EmailCategoryRequest emailCategoryRequest,Principal principal) throws CustomException {
         List<TransactionsDto>transactionsDtos=transactionService.getTransactionByEmailAndCategory(emailCategoryRequest,principal);
 
         ResponseHandler<List<TransactionsDto>> response=new ResponseHandler<>();
@@ -76,7 +76,7 @@ public class TransactionController {
     }
 
     @PostMapping("/filterByType")
-    public ResponseEntity<?> getTransactionByEmailAndType(@RequestBody EmailCategoryRequest emailCategoryRequest,Principal principal) throws CustomException {
+    public ResponseEntity<?> getTransactionByEmailAndType(@Valid @RequestBody EmailCategoryRequest emailCategoryRequest,Principal principal) throws CustomException {
         List<TransactionsDto>transactionsDtos=transactionService.getTransactionByEmailAndType(emailCategoryRequest,principal);
 
         ResponseHandler<List<TransactionsDto>> response=new ResponseHandler<>();
